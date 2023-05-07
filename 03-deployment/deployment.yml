@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aliapp
+spec:
+  selector:
+    matchLabels:
+      app: aliapp
+  template:
+    metadata:
+      labels:
+        app: aliapp
+    spec:
+      containers:
+      - name: aliapp
+        image: nginx
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
