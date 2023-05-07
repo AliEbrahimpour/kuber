@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+
+metadata:
+ name: aliapp
+ labels:
+   app: aliapp
+
+spec:
+ replicas: 3
+ selector:
+   matchLabels:
+     app: aliapp
+
+ template:
+   metadata:
+     name: aliapp
+     labels:
+       app: aliapp
+
+   spec:
+     containers:
+       - name: aliapp
+         image: nginx
+         ports:
+           - containerPort: 80
