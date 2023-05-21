@@ -1,0 +1,16 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: ame-ehsan
+  annotations:
+      "helm.sh/resource-policy": keep
+spec:
+  storageClassName: openebs-hostpath
+#openebs-hostpath
+#openebs-local
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 2Gi
+
