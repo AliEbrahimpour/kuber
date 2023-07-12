@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wp.123ali.ir
+  namespace: default
+spec:
+  secretName: wp.123ali.ir-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  commonName: wp.123ali.ir
+  dnsNames:
+  - wp.123ali.ir

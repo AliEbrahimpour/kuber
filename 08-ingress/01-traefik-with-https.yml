@@ -1,0 +1,33 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.entrypoints: https
+    traefik.ingress.kubernetes.io/router.tls.certresolver: "default"
+    cert-manager.io/cluster-issuer: letsencrypt-issuer
+spec:
+  rules:
+    - host: wp.123ali.ir
+      http:
+        paths:
+          - path: /app
+            pathType: Prefix
+            backend:
+              service:
+                name: app-service
+                port:
+                  number: 80
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: api-service
+                port:
+                  number: 80
+  tls:
+    - secretName: tutorial-service-cert
+      hosts:
+        - wp.123ali.ir
