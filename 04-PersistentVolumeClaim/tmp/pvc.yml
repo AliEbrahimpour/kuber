@@ -1,0 +1,13 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: ameehsan
+  annotations:
+      "helm.sh/resource-policy": keep
+spec:
+  storageClassName: "manila-sc"
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1Gi

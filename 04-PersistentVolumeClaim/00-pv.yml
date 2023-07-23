@@ -3,7 +3,7 @@ kind: PersistentVolume
 metadata:
   name: my-pv
 spec:
-  storageClassName: openebs-local
+  storageClassName: manila-sc
 #my-storage-class
   capacity:
     storage: 10Gi

@@ -1,6 +1,10 @@
 # kuber
 info about kuber
 
+# Port Forwarding
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+
+
 # Get Value from chart
 helm upgrade -i my-release oci://ghcr.io/nginxinc/charts/nginx-ingress -f vaule.yml
 
