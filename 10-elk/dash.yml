@@ -1,0 +1,110 @@
+COMPUTED VALUES:
+affinity: {}
+autoscaling:
+  enabled: false
+  maxReplicas: 10
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 80
+config: {}
+dashboardAnnotations: {}
+envFrom: []
+extraContainers: ""
+extraEnvs: []
+extraInitContainers: ""
+extraObjects: []
+extraVolumeMounts: []
+extraVolumes: []
+fullnameOverride: ""
+hostAliases: []
+image:
+  pullPolicy: IfNotPresent
+  repository: docker.iranserver.com/opensearchproject/opensearch-dashboards
+  tag: ""
+imagePullSecrets: []
+ingress:
+  annotations: {}
+  enabled: false
+  hosts:
+  - host: chart-example.local
+    paths:
+    - backend:
+        serviceName: ""
+        servicePort: ""
+      path: /
+  labels: {}
+  tls: []
+labels: {}
+lifecycle: {}
+livenessProbe:
+  failureThreshold: 10
+  initialDelaySeconds: 10
+  periodSeconds: 20
+  successThreshold: 1
+  tcpSocket:
+    port: 5601
+  timeoutSeconds: 5
+nameOverride: ""
+nodeSelector: {}
+opensearchAccount:
+  keyPassphrase:
+    enabled: false
+  secret: ""
+opensearchDashboardsYml:
+  defaultMode: null
+opensearchHosts: https://opensearch-cluster-master:9200
+plugins:
+  enabled: false
+  installList: []
+podAnnotations: {}
+podSecurityContext: {}
+priorityClassName: ""
+rbac:
+  create: true
+readinessProbe:
+  failureThreshold: 10
+  initialDelaySeconds: 10
+  periodSeconds: 20
+  successThreshold: 1
+  tcpSocket:
+    port: 5601
+  timeoutSeconds: 5
+replicaCount: 1
+resources:
+  limits:
+    cpu: 100m
+    memory: 512M
+  requests:
+    cpu: 100m
+    memory: 512M
+secretMounts: []
+securityContext:
+  capabilities:
+    drop:
+    - ALL
+  runAsNonRoot: true
+  runAsUser: 1000
+serverHost: 0.0.0.0
+service:
+  annotations: {}
+  httpPortName: http
+  labels: {}
+  loadBalancerIP: ""
+  loadBalancerSourceRanges: []
+  nodePort: ""
+  port: 5601
+  type: ClusterIP
+serviceAccount:
+  annotations: {}
+  create: true
+  name: ""
+startupProbe:
+  failureThreshold: 20
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  successThreshold: 1
+  tcpSocket:
+    port: 5601
+  timeoutSeconds: 5
+tolerations: []
+updateStrategy:
+  type: Recreate
