@@ -223,3 +223,18 @@ status:
     ingress:
     - hostname: afbcd905b614842c29702ddd7481784d-1960968212.ap-south-1.elb.amazonaws.com
 ```
+
+
+
+## 10: Install Elk With Helm and Update Kibana Dashboard 
+```
+helm repo add opensearch https://opensearch-project.github.io/helm-charts/
+helm install opensearch opensearch/opensearch -f values.yaml 
+helm install dashboard opensearch/opensearch-dashboards -f dash.yml
+```
+
+for update and remove all kibana index for dashboard
+```
+curl -u admin:admin -k -XDELETE "https://localhost:9200/.kibana_1"
+
+```
